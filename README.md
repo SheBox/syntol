@@ -23,9 +23,10 @@ This project includes minimal replacements or analogs for selected UNIX command-
 
 ### 🧰 Available Tools
 
-| Tool         | Syntol Command | Original UNIX Analog | Description              |
-|--------------|----------------|-----------------------|--------------------------|
-| CLI Util  | `syntolmake`   | `make` (kind of)      | Automates the build process   |
+| Tool         | Syntol Command | Original UNIX Analog | Description              | Requirements |
+|--------------|----------------|-----------------------|--------------------------|--------------------------|
+| CLI Util  | `syntolmake`   | `make` (kind of)      | Automates the build process   | No |
+| CLI Util  | `syntolhash`   | `md5sum \| awk '{print $1}'` (example)| File validation   | Windows +7 |
 
 ---
 
