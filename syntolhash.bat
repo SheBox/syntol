@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: Правильная обработка параметров с пробелами
+
 set "algorithm="
 set "file="
 set "expected_hash="
@@ -19,7 +19,7 @@ if not exist "%file%" (
     exit /b 1
 )
 
-:: Проверка и установка алгоритма
+:: Algo set
 set "certutil_alg="
 for %%A in (
     "MD2" 
@@ -37,7 +37,7 @@ if not defined certutil_alg (
     exit /b 1
 )
 
-:: Вычисление хэша
+:: Hash computing
 set "computed_hash="
 for /f "delims=" %%i in (
     'CertUtil -hashfile "%file%" %certutil_alg% ^| findstr /rc:"^[0-9a-fA-F][0-9a-fA-F]*$"'
@@ -51,7 +51,7 @@ if not defined computed_hash (
     exit /b 1
 )
 
-:: Режим проверки хэша
+:: Check hash mode
 if defined expected_hash (
     set "expected_hash=%expected_hash: =%"
     set "expected_hash=%expected_hash:^^=%%"
@@ -67,7 +67,7 @@ if defined expected_hash (
     )
 )
 
-:: Режим вывода хэша
+:: Hash output
 echo %computed_hash%
 exit /b 0
 
